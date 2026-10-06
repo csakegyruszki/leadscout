@@ -1,0 +1,32 @@
+[project]
+name = "leadscout"
+version = "0.1.0"
+description = "Inbound lead research, compliance screening and fit scoring"
+requires-python = ">=3.12"
+readme = "README.md"
+
+[project.scripts]
+leadscout = "leadscout.cli:console_main"
+
+# Optional Crawl4AI escalation (providers/website.py's needs_js_render trigger),
+# off by default - only used when LEADSCOUT_JS_RENDER=1. `pip install -e .[js]`.
+[project.optional-dependencies]
+js = ["crawl4ai>=0.4"]
+
+[tool.setuptools.packages.find]
+include = ["leadscout*"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.ruff.lint.per-file-ignores]
+# Fixture imported from tests/inbound_support.py: the argument shadows the import by design.
+"tests/test_inbound_*.py" = ["F811"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

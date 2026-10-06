@@ -1,0 +1,31 @@
+# Sanctioned jurisdictions (illustrative: OFAC comprehensive-sanctions
+# jurisdictions plus a few export-control flags), not legal advice, not real-time.
+# Loaded by leadscout/config.py into Settings.sanctioned_countries; recorded as
+# "policy" evidence in the provenance ledger at the start of every run.
+jurisdictions:
+  - Cuba
+  - Iran
+  - North Korea
+  - Syria
+  - Russia
+  - Belarus
+  - Crimea
+  - Donetsk
+  - Luhansk
+  - Venezuela
+  - Myanmar
+
+# Capital/major-city name markers for the restricted jurisdictions above - used by
+# compliance.py's deterministic HQ-unknown safety net (never LLM-decided) to catch
+# evidence that names a restricted-jurisdiction city even when the extracted
+# headquarters_country itself came back unknown/conflicting (e.g. a legal footer
+# naming "Tehran" while the marketing copy claims a different, unsanctioned HQ).
+markers:
+  - Tehran
+  - Moscow
+  - Pyongyang
+  - Damascus
+  - Havana
+  - Minsk
+  - Caracas
+  - Naypyidaw

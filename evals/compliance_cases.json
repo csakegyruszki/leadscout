@@ -1,0 +1,164 @@
+[
+  {
+    "company": "CloudTrim, Inc.",
+    "website": "https://cloudtrim.com",
+    "hq_country": "United States",
+    "expected": "blocked",
+    "why": "exact competitor name (CloudTrim Inc) with a different legal suffix and punctuation"
+  },
+  {
+    "company": "Spendwise Cloud GmbH",
+    "website": "https://spendwise-cloud.de",
+    "hq_country": "Germany",
+    "expected": "blocked",
+    "why": "competitor SpendWise Cloud with a German suffix and a case variant on the first word"
+  },
+  {
+    "company": "Cloud Trim",
+    "website": "https://cloud-trim-inc.com",
+    "hq_country": "United States",
+    "expected": "blocked",
+    "why": "spacing/hyphen variant of CloudTrim Inc"
+  },
+  {
+    "company": "cloudtrim",
+    "website": "https://cloudtrim.io",
+    "hq_country": "United States",
+    "expected": "blocked",
+    "why": "lowercase, no-space variant of CloudTrim Inc"
+  },
+  {
+    "company": "CT Inc",
+    "website": "https://ct-inc.example.com",
+    "hq_country": "United States",
+    "expected": "review",
+    "why": "abbreviation - could be CloudTrim or an unrelated company, needs a human check"
+  },
+  {
+    "company": "Cloud RightSize Co",
+    "website": "https://cloudrightsize.example.com",
+    "hq_country": "United States",
+    "expected": "review",
+    "why": "reordered tokens vs competitor RightSize Cloud Co"
+  },
+  {
+    "company": "RightSize Solutions",
+    "website": "https://rightsizesolutions.example.com",
+    "hq_country": "United States",
+    "expected": "review",
+    "why": "shares the distinctive token 'RightSize' with a competitor but different suffix/product word"
+  },
+  {
+    "company": "Blue Cloud Bakery",
+    "website": "https://bluecloudbakery.example.com",
+    "hq_country": "United States",
+    "expected": "clear",
+    "why": "generic word 'cloud' only, obviously unrelated business (a bakery)"
+  },
+  {
+    "company": "Cloud Solutions Ltd",
+    "website": "https://cloudsolutions.example.co.uk",
+    "hq_country": "United Kingdom",
+    "expected": "clear",
+    "accept": ["clear", "review"],
+    "why": "generic words 'cloud' and 'solutions' only, no distinctive overlap with any competitor - real OpenSanctions data (measured 2026-09-19) returns unrelated debarred hits under this exact generic name (e.g. 'Cloud Solutions LLC' at 0.73, match true); a cautious 'review' from that evidence is an acceptable real-world answer alongside 'clear', a hard 'blocked' is not"
+  },
+  {
+    "company": "Wise Financial",
+    "website": "https://wisefinancial.example.com",
+    "hq_country": "United States",
+    "expected": "clear",
+    "why": "generic word 'wise' overlaps with SpendWise Cloud but is coincidental"
+  },
+  {
+    "company": "Spend Wisely Consulting",
+    "website": "https://spendwisely.example.com",
+    "hq_country": "United States",
+    "expected": "clear",
+    "why": "generic phrase, not a name match to SpendWise Cloud"
+  },
+  {
+    "company": "Tehran Logistics",
+    "website": "https://tehranlogistics.ir",
+    "hq_country": "Iran",
+    "expected": "blocked",
+    "why": "headquartered in a sanctioned jurisdiction (Iran), corroborated by the .ir TLD"
+  },
+  {
+    "company": "Damascus Trading Co",
+    "website": "https://damascustrading.sy",
+    "hq_country": "Syria",
+    "expected": "blocked",
+    "why": "headquartered in a sanctioned jurisdiction (Syria), corroborated by the .sy TLD"
+  },
+  {
+    "company": "Berlin-Moscow Trading",
+    "website": "https://berlinmoscow.de",
+    "hq_country": "Germany",
+    "expected": "review",
+    "why": "name references a sanctioned country (Russia) but HQ is Germany - an office/customer, not HQ"
+  },
+  {
+    "company": "Havana Cigars Export",
+    "website": "https://havanacigars.cu",
+    "hq_country": "Cuba",
+    "expected": "blocked",
+    "why": "headquartered in a sanctioned jurisdiction (Cuba), corroborated by the .cu TLD"
+  },
+  {
+    "company": "Pyongyang Tech",
+    "website": "https://pyongyangtech.kp",
+    "hq_country": "North Korea",
+    "expected": "blocked",
+    "why": "headquartered in a sanctioned jurisdiction (North Korea), corroborated by the .kp TLD"
+  },
+  {
+    "company": "Minsk Freight",
+    "website": "https://minskfreight.by",
+    "hq_country": "Belarus",
+    "expected": "blocked",
+    "why": "headquartered in a sanctioned jurisdiction (Belarus), corroborated by the .by TLD"
+  },
+  {
+    "company": "Zapier",
+    "website": "https://zapier.com",
+    "hq_country": "United States",
+    "expected": "clear",
+    "why": "plain unrelated SaaS company, no competitor or sanctions overlap"
+  },
+  {
+    "company": "Artizan Bakery",
+    "website": "https://www.artizan.hu",
+    "hq_country": "Hungary",
+    "expected": "clear",
+    "why": "plain unrelated small business"
+  },
+  {
+    "company": "Masterplast",
+    "website": "https://www.masterplast.hu",
+    "hq_country": "Hungary",
+    "expected": "clear",
+    "why": "plain unrelated manufacturer - also the OpenSanctions regression case: measured 0.88 match against a corp.public-only registry record, which must stay clear"
+  },
+  {
+    "company": "Rosneft",
+    "website": "https://www.rosneft.ru",
+    "hq_country": "Russia",
+    "expected": "blocked",
+    "why": "real OpenSanctions hit: score 1.0, match true, topics include sanction/export.control/debarment"
+  },
+  {
+    "company": "Sovcombank",
+    "website": "https://sovcombank.ru",
+    "hq_country": "Russia",
+    "expected": "blocked",
+    "why": "real OpenSanctions hit: score 1.0, match true, topics include sanction/export.control/debarment"
+  },
+  {
+    "company": "Rosneft Trading Kft",
+    "website": "https://rosneft-trading.hu",
+    "hq_country": "Hungary",
+    "expected": "review",
+    "why": "real OpenSanctions hit at 0.72 against ROSNEFT TRADE LIMITED (sanction/export.control topics, match=true) - below the 0.85 score floor for blocked_evidence, so this is review_evidence: a plausible but not confident enough match on its own, HQ outside Russia too"
+  }
+]

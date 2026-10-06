@@ -1,0 +1,12 @@
+[Unit]
+Description=Poll the LeadScout inbound mailbox every few minutes
+
+[Timer]
+OnBootSec=2min
+# Measured from the END of the previous run, so a slow pass can never overlap the next one.
+OnUnitInactiveSec=3min
+AccuracySec=15s
+Unit=leadscout-mail-poll.service
+
+[Install]
+WantedBy=timers.target

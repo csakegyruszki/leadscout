@@ -1,0 +1,19 @@
+[
+ {
+  "name": "main.tf",
+  "path": "main.tf",
+  "type": "file",
+  "download_url": "https://raw.githubusercontent.com/zapier/infra-terraform/main/main.tf"
+ },
+ {
+  "name": "variables.tf",
+  "path": "variables.tf",
+  "type": "file",
+  "download_url": "https://raw.githubusercontent.com/zapier/infra-terraform/main/variables.tf"
+ },
+ {
+  "name": "README.md",
+  "path": "README.md",
+  "type": "file"
+ }
+]

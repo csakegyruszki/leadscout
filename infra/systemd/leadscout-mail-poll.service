@@ -1,0 +1,22 @@
+[Unit]
+Description=LeadScout inbound mail poll (one IMAP pass)
+Documentation=file:///opt/leadscout/docs/inbound-email.md
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=leadscout
+WorkingDirectory=/opt/leadscout
+# LEADSCOUT_IMAP_* and the LLM keys live in this file (chmod 600, owned by the service user).
+# Nothing secret is written into the unit itself.
+EnvironmentFile=/opt/leadscout/.env
+# One IMAP pass, then re-drive anything received but unfinished. Webhook-only deployments: use
+# `leadscout mail resume` here instead.
+ExecStart=/opt/leadscout/.venv/bin/leadscout mail poll --once --resume
+TimeoutStartSec=15min
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/leadscout/out

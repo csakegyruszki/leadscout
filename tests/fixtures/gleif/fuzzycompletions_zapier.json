@@ -1,0 +1,174 @@
+{
+ "data": [
+  {
+   "type": "fuzzycompletions",
+   "attributes": {
+    "value": "ZAPIER, INC."
+   },
+   "relationships": {
+    "lei-records": {
+     "data": {
+      "type": "lei-records",
+      "id": "254900XIXKZQ7A7N1M29"
+     },
+     "links": {
+      "related": "https://api.gleif.org/api/v1/lei-records/254900XIXKZQ7A7N1M29"
+     }
+    }
+   }
+  },
+  {
+   "type": "fuzzycompletions",
+   "attributes": {
+    "value": "ZAPPER LIMITED"
+   },
+   "relationships": {
+    "lei-records": {
+     "data": {
+      "type": "lei-records",
+      "id": "213800SCPFNKVXVG7X74"
+     },
+     "links": {
+      "related": "https://api.gleif.org/api/v1/lei-records/213800SCPFNKVXVG7X74"
+     }
+    }
+   }
+  },
+  {
+   "type": "fuzzycompletions",
+   "attributes": {
+    "value": "ZAPIRRALL, S.L."
+   },
+   "relationships": {
+    "lei-records": {
+     "data": {
+      "type": "lei-records",
+      "id": "959800L0K1MJTAT3KV36"
+     },
+     "links": {
+      "related": "https://api.gleif.org/api/v1/lei-records/959800L0K1MJTAT3KV36"
+     }
+    }
+   }
+  },
+  {
+   "type": "fuzzycompletions",
+   "attributes": {
+    "value": "ZANIERES EOLIENNES"
+   },
+   "relationships": {
+    "lei-records": {
+     "data": {
+      "type": "lei-records",
+      "id": "254900QIQH2JKVIBQO15"
+     },
+     "links": {
+      "related": "https://api.gleif.org/api/v1/lei-records/254900QIQH2JKVIBQO15"
+     }
+    }
+   }
+  },
+  {
+   "type": "fuzzycompletions",
+   "attributes": {
+    "value": "Zapper Holding B.V."
+   },
+   "relationships": {
+    "lei-records": {
+     "data": {
+      "type": "lei-records",
+      "id": "724500FBYRWZ41BOZQ82"
+     },
+     "links": {
+      "related": "https://api.gleif.org/api/v1/lei-records/724500FBYRWZ41BOZQ82"
+     }
+    }
+   }
+  },
+  {
+   "type": "fuzzycompletions",
+   "attributes": {
+    "value": "ZANIERI GROUP S.R.L."
+   },
+   "relationships": {
+    "lei-records": {
+     "data": {
+      "type": "lei-records",
+      "id": "815600F6B8595BE56030"
+     },
+     "links": {
+      "related": "https://api.gleif.org/api/v1/lei-records/815600F6B8595BE56030"
+     }
+    }
+   }
+  },
+  {
+   "type": "fuzzycompletions",
+   "attributes": {
+    "value": "ZAVIER JEWELLERS LTD"
+   },
+   "relationships": {
+    "lei-records": {
+     "data": {
+      "type": "lei-records",
+      "id": "636700A555Z71PBFQY53"
+     },
+     "links": {
+      "related": "https://api.gleif.org/api/v1/lei-records/636700A555Z71PBFQY53"
+     }
+    }
+   }
+  },
+  {
+   "type": "fuzzycompletions",
+   "attributes": {
+    "value": "ZANIER SERVIZI S.R.L."
+   },
+   "relationships": {
+    "lei-records": {
+     "data": {
+      "type": "lei-records",
+      "id": "894500YM3UK1B3ZYXB70"
+     },
+     "links": {
+      "related": "https://api.gleif.org/api/v1/lei-records/894500YM3UK1B3ZYXB70"
+     }
+    }
+   }
+  },
+  {
+   "type": "fuzzycompletions",
+   "attributes": {
+    "value": "Zappier Consulting AB"
+   },
+   "relationships": {
+    "lei-records": {
+     "data": {
+      "type": "lei-records",
+      "id": "894500BS1EKK40ANHV34"
+     },
+     "links": {
+      "related": "https://api.gleif.org/api/v1/lei-records/894500BS1EKK40ANHV34"
+     }
+    }
+   }
+  },
+  {
+   "type": "fuzzycompletions",
+   "attributes": {
+    "value": "ZAMPIERI HOLDING S.R.L."
+   },
+   "relationships": {
+    "lei-records": {
+     "data": {
+      "type": "lei-records",
+      "id": "815600C6154B4EE89069"
+     },
+     "links": {
+      "related": "https://api.gleif.org/api/v1/lei-records/815600C6154B4EE89069"
+     }
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,112 @@
+# Example profile: a cloud-cost optimisation vendor (fictional
+# example competitor list). Reproduces the built-in v0.2 behaviour.
+name: infra-vendor
+description: Cloud-cost optimisation vendor - fit driven by evidenced public-cloud spend.
+
+identity:
+  product_name: ExampleCloud Optimizer
+  company_name: ExampleCloud
+  sender_name: ExampleCloud sales
+  sender_email: leadscout@example.test
+  rep_email: sales-rep@example.test
+  signature: ""
+
+reply:
+  enabled: true
+  draft_on: [clear]
+  subject_prefix: "Re: "
+
+# --- fit: the cloud-vendor ICP (cloud-bill-driven; see leadscout/fit.py design notes) -------
+# Headcount alone under-predicts cloud spend - a small AI startup with petabyte-scale
+# object storage has a handful of engineers and a huge bill - so cloud evidence
+# (max 55) outweighs scale (max 30); complexity adds up to 15. Total capped at 100.
+fit:
+  threshold: 60                      # FIT_THRESHOLD env var overrides it
+  sales_ready_min_confidence: MEDIUM # sales_ready needs confidence >= this (i.e. != LOW)
+  max_score: 100
+  confidence:
+    requires_cloud_signal: true      # no >=2 evidence-backed cloud signals -> confidence LOW
+
+  size_bands:                        # the one definition of company_size_band values
+    "1-10":     {employees: 5,    min: 1,    max: 10}
+    "11-50":    {employees: 30,   min: 11,   max: 50}
+    "51-200":   {employees: 120,  min: 51,   max: 200}
+    "201-1000": {employees: 500,  min: 201,  max: 1000}
+    "1000+":    {employees: 3000, min: 1000, max: 10000000}
+
+  scale:
+    unknown:
+      points: 3
+      note: "floor, not zero: a real company still has some scale"
+    tiers:
+      - {below: 10,    points: 3,  note: "too small to have a cloud bill worth optimising"}
+      - {below: 50,    points: 10}
+      - {below: 200,   points: 18}
+      - {below: 1000,  points: 25}
+      - {below: 10000, points: 30, note: "sweet spot: big bill, still one buyer"}
+      - {points: 24, note: "enterprise: long procurement, likely has FinOps already"}
+
+  cloud:
+    points_cap: 55
+    state_points: {CONFIRMED: 40, LIKELY: 30, POSSIBLE: 18, EDGE_ONLY: 5, UNKNOWN: 0}
+
+  workload_intensity:                # +points per matched category, cited from tech_signals
+    points_per_category: 5
+    cap: 15
+    categories:
+      "gpu/ai/ml workload": [gpu, ai workload, ml workload, machine learning workload, gpu cluster]
+      "large-scale data": [petabyte, terabyte, large-scale data, big data]
+      "multi-region/multi-cloud": [multi-region, multi-cloud, multiregion, multicloud]
+      "kubernetes/iac at scale": [kubernetes, terraform, k8s]
+      "sre/platform hiring signal": [sre, site reliability, platform engineer, cloud engineer]
+
+  complexity:
+    points_cap: 15
+    rules:
+      - label: multiple products/markets
+        points: 5
+        field: text
+        any: [multiple products, product suite, product portfolio, multiple markets, international markets]
+      - label: "regulated industry '{industry}'"
+        points: 5
+        field: industry
+        any: [fintech, financial, health, healthcare, medical, bank, insurance]
+      - label: international offices
+        points: 5
+        field: text
+        any: [international offices, offices in, global offices, worldwide offices, offices across]
+      - label: on-prem + cloud (hybrid infra)
+        points: 5
+        field: text
+        all: [on-prem, cloud]
+
+  spend:                             # relative prior for the tracker, never part of the score
+    usd_per_employee: {infra-heavy: 60, neutral: 15, low-infra: 3}
+    tier_edges: [[1000, LOW], [100000, MEDIUM], [1000000, HIGH]]
+    tier_above: VERY_HIGH
+    high_industries: [software, saas, fintech, e-commerce, ecommerce, marketplace, media, streaming,
+      gaming, adtech, data, analytics, ai, machine learning, telecom, internet, cloud, platform,
+      logistics tech, mobility, ride-hailing, ride hailing, on-demand, delivery, app,
+      transportation network]
+    low_industries: [restaurant, bakery, retail store, construction, law firm, dental, hair, salon,
+      real estate agency, farm, consulting (individual)]
+
+# --- compliance --------------------------------------------------------------------
+compliance:
+  competitors_file: do_not_engage.yaml          # relative to config/
+  jurisdictions_file: restricted_jurisdictions.yaml
+  competitor_offering: cloud cost optimization  # "a company whose product IS ..." prompt line
+  generic_name_tokens: [cloud, solutions, systems, services, group, tech]
+  generic_name_example: Cloud                   # prompt: the word "Cloud" alone is not a match
+  generic_words_hint: "cloud, inc, co, systems, solutions"
+
+# --- research ----------------------------------------------------------------------
+research:
+  tech_signal_example: Kubernetes
+  tech_signal_guidance: |-
+    cloud providers, SRE/platform/cloud-engineer job postings, GPU/AI/ML
+      workload, petabyte/terabyte-scale data, multi-region/multi-cloud, Kubernetes/Terraform,
+      "API"/"platform"/"real-time" wording, or generic cloud/software mentions - name the actual signal
+
+notification:
+  subject_template: "[Lead] {company} - fit {score}/100 ({confidence}) - compliance {flag}"

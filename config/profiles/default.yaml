@@ -1,0 +1,124 @@
+# Neutral default profile. Copy this file to config/profiles/<yours>.yaml and select it
+# with LEADSCOUT_ORG_PROFILE=<yours> (or a path). A section or key you omit falls back to
+# the code default (the numbers of the `infra-vendor` example profile), so a copy only
+# needs to list what differs. An UNKNOWN key is a hard error, not silently ignored.
+name: default
+description: Neutral B2B profile - no vendor-specific ICP, competitors or wording.
+
+# --- identity: who the pipeline speaks for ------------------------------------------------
+identity:
+  product_name: LeadScout
+  company_name: ""
+  sender_name: Sales team
+  sender_email: leadscout@example.test   # notification From, unless SMTP_USER is set
+  rep_email: sales-rep@example.test      # notification To, unless SALES_REP_EMAIL is set
+  signature: ""
+
+# --- reply: the draft answer to an inbound mail ---------------------------------------------
+reply:
+  enabled: true
+  draft_on: [clear]                      # compliance statuses that get a draft
+  subject_prefix: "Re: "
+
+# --- fit: 0-100 score = scale + cloud/tech evidence + complexity, capped at max_score --------
+# This profile does NOT require cloud evidence: a sizeable company with an established
+# headquarters is MEDIUM confidence without any, and scale and complexity carry the score.
+# Component ceilings: scale 40 + cloud evidence 25 + complexity 20 = 85.
+fit:
+  threshold: 55                          # sales_ready needs score >= this (FIT_THRESHOLD env wins)
+  sales_ready_min_confidence: MEDIUM     # ... and confidence >= this (LOW < MEDIUM < HIGH)
+  max_score: 100
+  confidence:
+    # true  -> fewer than two evidence-backed cloud signals forces confidence LOW.
+    # false -> that signal counts like HQ-known and headcount-known: 3 of 3 = HIGH, 2 = MEDIUM.
+    requires_cloud_signal: false
+
+  # The one definition of the allowed company_size_band values (API/CLI validation, headcount
+  # fallback). `employees` = the figure used when only the band is known; min/max = the range
+  # an inferred headcount must fall into, or the self-reported band wins.
+  size_bands:
+    "1-10":     {employees: 5,    min: 1,    max: 10}
+    "11-50":    {employees: 30,   min: 11,   max: 50}
+    "51-200":   {employees: 120,  min: 51,   max: 200}
+    "201-1000": {employees: 500,  min: 201,  max: 1000}
+    "1000+":    {employees: 3000, min: 1000, max: 10000000}
+
+  # Scale points by headcount: the first tier whose `below` the headcount is under applies;
+  # the last tier (no `below`) catches the rest. `note` is appended to the rationale.
+  scale:
+    unknown:
+      points: 5
+      note: "headcount not established"
+    tiers:
+      - {below: 10,    points: 5,  note: "very small team"}
+      - {below: 50,    points: 15}
+      - {below: 200,   points: 25}
+      - {below: 1000,  points: 32}
+      - {below: 10000, points: 40, note: "mid-to-large organisation"}
+      - {points: 36,   note: "very large organisation"}
+
+  # Technology/cloud evidence is a weaker signal here: lower weights, lower cap.
+  cloud:
+    points_cap: 25
+    state_points: {CONFIRMED: 20, LIKELY: 15, POSSIBLE: 9, EDGE_ONLY: 2, UNKNOWN: 0}
+
+  # Extra points per matched category of tech_signals (each must cite an evidence id).
+  workload_intensity:
+    points_per_category: 3
+    cap: 6
+    categories:
+      "data or ML platform": [machine learning, data platform, data warehouse, big data]
+      "engineering organisation": [platform engineer, devops, site reliability, sre]
+
+  # Complexity rules: each matching rule adds `points`; `field` is the site text + summary
+  # ("text") or the extracted industry ("industry"); `any` = at least one keyword, `all` =
+  # every keyword. `{industry}` in a label is replaced by the extracted industry.
+  complexity:
+    points_cap: 20
+    rules:
+      - label: multiple products/markets
+        points: 5
+        field: text
+        any: [multiple products, product suite, product portfolio, multiple markets, international markets]
+      - label: "regulated industry '{industry}'"
+        points: 5
+        field: industry
+        any: [financial, health, healthcare, medical, bank, insurance, pharma]
+      - label: international offices
+        points: 5
+        field: text
+        any: [international offices, offices in, global offices, worldwide offices, offices across]
+      - label: dedicated procurement or security review
+        points: 5
+        field: text
+        any: [procurement, vendor management, security review, compliance team]
+
+  # Relative spend tier shown in the tracker; never part of the score. Empty industry lists
+  # = every industry is "neutral".
+  spend:
+    usd_per_employee: {infra-heavy: 15, neutral: 15, low-infra: 15}
+    tier_edges: [[1000, LOW], [100000, MEDIUM], [1000000, HIGH]]
+    tier_above: VERY_HIGH
+    high_industries: []
+    low_industries: []
+
+# --- compliance: who must not be engaged -----------------------------------------------------
+compliance:
+  competitors: []                        # inline list; or `competitors_file: <path under config/>`
+  jurisdictions_file: restricted_jurisdictions.yaml   # illustrative sanctions list, not vendor-specific
+  competitor_offering: ""                # what a competitor sells; empty omits that prompt line
+  generic_name_tokens: [solutions, systems, services, group, tech]  # words that never prove identity
+  generic_name_example: ""               # a word for the prompt's "alone is not a match" example
+  generic_words_hint: "inc, co, systems, solutions"
+
+# --- research: how the research model is briefed ---------------------------------------------
+research:
+  tech_signal_example: Postgres
+  tech_signal_guidance: >-
+    technologies, platforms and vendors the company says it uses, engineering job postings,
+    scale or volume statements - name the actual signal
+
+# --- notification: the internal e-mail to the sales rep ---------------------------------------
+notification:
+  # placeholders: {company} {score} {confidence} {flag}
+  subject_template: "[Lead] {company} - fit {score}/100 ({confidence}) - compliance {flag}"

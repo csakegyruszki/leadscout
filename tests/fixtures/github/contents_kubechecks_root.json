@@ -1,0 +1,22 @@
+[
+ {
+  "name": "Dockerfile",
+  "path": "Dockerfile",
+  "type": "file"
+ },
+ {
+  "name": ".github",
+  "path": ".github",
+  "type": "dir"
+ },
+ {
+  "name": "go.mod",
+  "path": "go.mod",
+  "type": "file"
+ },
+ {
+  "name": "README.md",
+  "path": "README.md",
+  "type": "file"
+ }
+]

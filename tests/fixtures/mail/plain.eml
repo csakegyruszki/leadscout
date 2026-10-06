@@ -1,0 +1,25 @@
+Received: from mail.fabrikam-logistics.test by mx.leadscout.test; Mon, 5 Oct 2026 09:14:02 +0000
+Authentication-Results: mx.leadscout.test; spf=pass smtp.mailfrom=fabrikam-logistics.test; dkim=pass header.d=fabrikam-logistics.test; dmarc=pass header.from=fabrikam-logistics.test
+From: Anna Keller <anna.keller@fabrikam-logistics.test>
+To: sales@vendor.test
+Subject: Cloud cost review for our logistics platform
+Date: Mon, 5 Oct 2026 09:14:00 +0000
+Message-ID: <plain-001@fabrikam-logistics.test>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Hello,
+
+we run a freight-tracking platform on Kubernetes and our cloud bill has doubled in a year.
+We are about 120 employees and would like to talk to someone about a cost review.
+
+Could you send over a few time slots next week?
+
+Best regards,
+Anna Keller
+Head of Platform Engineering
+Fabrikam Logistics GmbH
++49 30 1234567
+https://www.fabrikam-logistics.test
+--
+Fabrikam Logistics GmbH, Berlin

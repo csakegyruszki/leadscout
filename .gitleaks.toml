@@ -1,0 +1,5 @@
+# Secret-scan configuration: the default rule set stays fully enabled everywhere.
+title = "leadscout"
+
+[extend]
+useDefault = true

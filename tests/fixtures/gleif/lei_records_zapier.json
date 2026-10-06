@@ -1,0 +1,145 @@
+{
+ "meta": {
+  "goldenCopy": {
+   "publishDate": "2026-09-18T16:00:00Z"
+  },
+  "pagination": {
+   "currentPage": 1,
+   "perPage": 15,
+   "from": 1,
+   "to": 1,
+   "total": 1,
+   "lastPage": 1
+  }
+ },
+ "links": {
+  "first": "https://api.gleif.org/api/v1/lei-records?filter%5Bentity.legalName%5D=Zapier&page%5Bnumber%5D=1&page%5Bsize%5D=15",
+  "last": "https://api.gleif.org/api/v1/lei-records?filter%5Bentity.legalName%5D=Zapier&page%5Bnumber%5D=1&page%5Bsize%5D=15"
+ },
+ "data": [
+  {
+   "type": "lei-records",
+   "id": "254900XIXKZQ7A7N1M29",
+   "attributes": {
+    "lei": "254900XIXKZQ7A7N1M29",
+    "entity": {
+     "legalName": {
+      "name": "ZAPIER, INC.",
+      "language": "en"
+     },
+     "otherNames": [],
+     "transliteratedOtherNames": [],
+     "legalAddress": {
+      "language": "en",
+      "addressLines": [
+       "C/O CORPORATION SERVICE COMPANY",
+       "251 LITTLE FALLS DRIVE"
+      ],
+      "addressNumber": null,
+      "addressNumberWithinBuilding": null,
+      "mailRouting": null,
+      "city": "WILMINGTON",
+      "region": "US-DE",
+      "country": "US",
+      "postalCode": "19808"
+     },
+     "headquartersAddress": {
+      "language": "en",
+      "addressLines": [
+       "548 MARKET ST #62411"
+      ],
+      "addressNumber": null,
+      "addressNumberWithinBuilding": null,
+      "mailRouting": null,
+      "city": "SAN FRANCISCO",
+      "region": "US-CA",
+      "country": "US",
+      "postalCode": "94104"
+     },
+     "registeredAt": {
+      "id": "RA000602",
+      "other": null
+     },
+     "registeredAs": "5158590",
+     "jurisdiction": "US-DE",
+     "category": "GENERAL",
+     "legalForm": {
+      "id": "XTIQ",
+      "other": null
+     },
+     "associatedEntity": {
+      "lei": null,
+      "name": null
+     },
+     "status": "ACTIVE",
+     "expiration": {
+      "date": null,
+      "reason": null
+     },
+     "successorEntity": {
+      "lei": null,
+      "name": null
+     },
+     "successorEntities": [],
+     "creationDate": "2012-05-22T00:00:00Z",
+     "subCategory": null,
+     "otherAddresses": [],
+     "eventGroups": []
+    },
+    "registration": {
+     "initialRegistrationDate": "2025-02-27T13:50:23Z",
+     "lastUpdateDate": "2026-01-29T09:09:00Z",
+     "status": "ISSUED",
+     "nextRenewalDate": "2027-02-27T13:50:23Z",
+     "managingLou": "5493001KJTIIGC8Y1R12",
+     "corroborationLevel": "FULLY_CORROBORATED",
+     "validatedAt": {
+      "id": "RA000602",
+      "other": null
+     },
+     "validatedAs": "5158590",
+     "otherValidationAuthorities": []
+    },
+    "bic": null,
+    "mic": null,
+    "ocid": "us_de/5158590",
+    "qcc": null,
+    "gem": null,
+    "spglobal": [
+     "223823900"
+    ],
+    "conformityFlag": "CONFORMING"
+   },
+   "relationships": {
+    "managing-lou": {
+     "links": {
+      "related": "https://api.gleif.org/api/v1/lei-records/254900XIXKZQ7A7N1M29/managing-lou"
+     }
+    },
+    "lei-issuer": {
+     "links": {
+      "related": "https://api.gleif.org/api/v1/lei-records/254900XIXKZQ7A7N1M29/lei-issuer"
+     }
+    },
+    "field-modifications": {
+     "links": {
+      "related": "https://api.gleif.org/api/v1/lei-records/254900XIXKZQ7A7N1M29/field-modifications"
+     }
+    },
+    "direct-parent": {
+     "links": {
+      "reporting-exception": "https://api.gleif.org/api/v1/lei-records/254900XIXKZQ7A7N1M29/direct-parent-reporting-exception"
+     }
+    },
+    "ultimate-parent": {
+     "links": {
+      "reporting-exception": "https://api.gleif.org/api/v1/lei-records/254900XIXKZQ7A7N1M29/ultimate-parent-reporting-exception"
+     }
+    }
+   },
+   "links": {
+    "self": "https://api.gleif.org/api/v1/lei-records/254900XIXKZQ7A7N1M29"
+   }
+  }
+ ]
+}

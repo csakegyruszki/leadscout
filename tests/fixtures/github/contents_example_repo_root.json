@@ -1,0 +1,13 @@
+[
+ {
+  "name": "main.tf",
+  "path": "main.tf",
+  "type": "file",
+  "download_url": "https://raw.githubusercontent.com/zapier/zapier-platform-example-app-custom-auth/main/main.tf"
+ },
+ {
+  "name": "README.md",
+  "path": "README.md",
+  "type": "file"
+ }
+]

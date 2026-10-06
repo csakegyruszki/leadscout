@@ -1,0 +1,8 @@
+# Normalise to LF in the repository, regardless of the checkout platform's own
+# autocrlf setting, so line endings are consistent for every contributor and CI runner.
+* text=auto eol=lf
+
+*.jsonl -text
+*.eml -text
+tests/fixtures/** -text
+evals/*.json -text

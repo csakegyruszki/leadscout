@@ -1,0 +1,277 @@
+{
+ "meta": {
+  "goldenCopy": {
+   "publishDate": "2026-09-18T16:00:00Z"
+  },
+  "pagination": {
+   "currentPage": 1,
+   "perPage": 15,
+   "from": 1,
+   "to": 2,
+   "total": 2,
+   "lastPage": 1
+  }
+ },
+ "links": {
+  "first": "https://api.gleif.org/api/v1/lei-records?filter%5Bentity.legalName%5D=Snapp&page%5Bnumber%5D=1&page%5Bsize%5D=15",
+  "last": "https://api.gleif.org/api/v1/lei-records?filter%5Bentity.legalName%5D=Snapp&page%5Bnumber%5D=1&page%5Bsize%5D=15"
+ },
+ "data": [
+  {
+   "type": "lei-records",
+   "id": "254900KEO0AKJDJOG708",
+   "attributes": {
+    "lei": "254900KEO0AKJDJOG708",
+    "entity": {
+     "legalName": {
+      "name": "SNIPP SNAPP AS",
+      "language": "no"
+     },
+     "otherNames": [],
+     "transliteratedOtherNames": [],
+     "legalAddress": {
+      "language": "en",
+      "addressLines": [
+       "C/O Gisholt",
+       "Bjerkelundsveien 80C"
+      ],
+      "addressNumber": null,
+      "addressNumberWithinBuilding": null,
+      "mailRouting": null,
+      "city": "Bekkestua",
+      "region": null,
+      "country": "NO",
+      "postalCode": "1357"
+     },
+     "headquartersAddress": {
+      "language": "en",
+      "addressLines": [
+       "Bjerkelundsveien 80C"
+      ],
+      "addressNumber": null,
+      "addressNumberWithinBuilding": null,
+      "mailRouting": null,
+      "city": "Bekkestua",
+      "region": null,
+      "country": "NO",
+      "postalCode": "1357"
+     },
+     "registeredAt": {
+      "id": "RA000472",
+      "other": null
+     },
+     "registeredAs": "883 692 462",
+     "jurisdiction": "NO",
+     "category": "GENERAL",
+     "legalForm": {
+      "id": "YI42",
+      "other": null
+     },
+     "associatedEntity": {
+      "lei": null,
+      "name": null
+     },
+     "status": "ACTIVE",
+     "expiration": {
+      "date": null,
+      "reason": null
+     },
+     "successorEntity": {
+      "lei": null,
+      "name": null
+     },
+     "successorEntities": [],
+     "creationDate": "2001-08-24T00:00:00Z",
+     "subCategory": null,
+     "otherAddresses": [],
+     "eventGroups": []
+    },
+    "registration": {
+     "initialRegistrationDate": "2018-08-28T15:34:55Z",
+     "lastUpdateDate": "2026-08-24T17:11:30Z",
+     "status": "ISSUED",
+     "nextRenewalDate": "2027-08-28T15:34:55Z",
+     "managingLou": "5493001KJTIIGC8Y1R12",
+     "corroborationLevel": "FULLY_CORROBORATED",
+     "validatedAt": {
+      "id": "RA000472",
+      "other": null
+     },
+     "validatedAs": "883 692 462",
+     "otherValidationAuthorities": []
+    },
+    "bic": null,
+    "mic": null,
+    "ocid": "no/883692462",
+    "qcc": "QNOGX0XBAT",
+    "gem": null,
+    "spglobal": [
+     "579219388"
+    ],
+    "conformityFlag": "CONFORMING"
+   },
+   "relationships": {
+    "managing-lou": {
+     "links": {
+      "related": "https://api.gleif.org/api/v1/lei-records/254900KEO0AKJDJOG708/managing-lou"
+     }
+    },
+    "lei-issuer": {
+     "links": {
+      "related": "https://api.gleif.org/api/v1/lei-records/254900KEO0AKJDJOG708/lei-issuer"
+     }
+    },
+    "field-modifications": {
+     "links": {
+      "related": "https://api.gleif.org/api/v1/lei-records/254900KEO0AKJDJOG708/field-modifications"
+     }
+    },
+    "direct-parent": {
+     "links": {
+      "reporting-exception": "https://api.gleif.org/api/v1/lei-records/254900KEO0AKJDJOG708/direct-parent-reporting-exception"
+     }
+    },
+    "ultimate-parent": {
+     "links": {
+      "reporting-exception": "https://api.gleif.org/api/v1/lei-records/254900KEO0AKJDJOG708/ultimate-parent-reporting-exception"
+     }
+    }
+   },
+   "links": {
+    "self": "https://api.gleif.org/api/v1/lei-records/254900KEO0AKJDJOG708"
+   }
+  },
+  {
+   "type": "lei-records",
+   "id": "9845004UADGDB63A1D44",
+   "attributes": {
+    "lei": "9845004UADGDB63A1D44",
+    "entity": {
+     "legalName": {
+      "name": "SNAPP PADDY PROCESSING PRIVATE LIMITED",
+      "language": "en"
+     },
+     "otherNames": [],
+     "transliteratedOtherNames": [],
+     "legalAddress": {
+      "language": "en",
+      "addressLines": [
+       "PLOT NO. - 2848, KHATA NO. - 476/755",
+       "MOUZA - BELPADA P. S. - BELPADA NO. - 61"
+      ],
+      "addressNumber": null,
+      "addressNumberWithinBuilding": null,
+      "mailRouting": null,
+      "city": "BOLANGIR",
+      "region": "IN-OD",
+      "country": "IN",
+      "postalCode": "767026"
+     },
+     "headquartersAddress": {
+      "language": "en",
+      "addressLines": [
+       "PLOT NO. - 2848, KHATA NO. - 476/755",
+       "MOUZA - BELPADA P. S. - BELPADA NO. - 61"
+      ],
+      "addressNumber": null,
+      "addressNumberWithinBuilding": null,
+      "mailRouting": null,
+      "city": "BOLANGIR",
+      "region": "IN-OD",
+      "country": "IN",
+      "postalCode": "767026"
+     },
+     "registeredAt": {
+      "id": "RA000394",
+      "other": null
+     },
+     "registeredAs": "U15400OR2020PTC034963",
+     "jurisdiction": "IN",
+     "category": "GENERAL",
+     "legalForm": {
+      "id": "YSP9",
+      "other": null
+     },
+     "associatedEntity": {
+      "lei": null,
+      "name": null
+     },
+     "status": "ACTIVE",
+     "expiration": {
+      "date": null,
+      "reason": null
+     },
+     "successorEntity": {
+      "lei": null,
+      "name": null
+     },
+     "successorEntities": [],
+     "creationDate": "2020-12-02T00:00:00Z",
+     "subCategory": null,
+     "otherAddresses": [],
+     "eventGroups": []
+    },
+    "registration": {
+     "initialRegistrationDate": "2023-06-07T12:48:12Z",
+     "lastUpdateDate": "2026-04-27T01:26:58Z",
+     "status": "ISSUED",
+     "nextRenewalDate": "2027-06-24T09:16:33Z",
+     "managingLou": "529900T8BM49AURSDO55",
+     "corroborationLevel": "FULLY_CORROBORATED",
+     "validatedAt": {
+      "id": "RA000394",
+      "other": null
+     },
+     "validatedAs": "U15400OR2020PTC034963",
+     "otherValidationAuthorities": [
+      {
+       "validatedAt": {
+        "id": "RA000754"
+       },
+       "validatedAs": "21ABECS9987J1ZP"
+      }
+     ]
+    },
+    "bic": null,
+    "mic": null,
+    "ocid": "in/U15400OR2020PTC034963",
+    "qcc": "QINB7QKA1Y",
+    "gem": null,
+    "spglobal": [
+     "1841958276"
+    ],
+    "conformityFlag": "CONFORMING"
+   },
+   "relationships": {
+    "managing-lou": {
+     "links": {
+      "related": "https://api.gleif.org/api/v1/lei-records/9845004UADGDB63A1D44/managing-lou"
+     }
+    },
+    "lei-issuer": {
+     "links": {
+      "related": "https://api.gleif.org/api/v1/lei-records/9845004UADGDB63A1D44/lei-issuer"
+     }
+    },
+    "field-modifications": {
+     "links": {
+      "related": "https://api.gleif.org/api/v1/lei-records/9845004UADGDB63A1D44/field-modifications"
+     }
+    },
+    "direct-parent": {
+     "links": {
+      "reporting-exception": "https://api.gleif.org/api/v1/lei-records/9845004UADGDB63A1D44/direct-parent-reporting-exception"
+     }
+    },
+    "ultimate-parent": {
+     "links": {
+      "reporting-exception": "https://api.gleif.org/api/v1/lei-records/9845004UADGDB63A1D44/ultimate-parent-reporting-exception"
+     }
+    }
+   },
+   "links": {
+    "self": "https://api.gleif.org/api/v1/lei-records/9845004UADGDB63A1D44"
+   }
+  }
+ ]
+}

@@ -1,0 +1,8 @@
+# Do-not-engage competitor list (example list, fictional).
+# Loaded by leadscout/config.py into Settings.competitors; recorded as "policy"
+# evidence in the provenance ledger at the start of every run, so a decision can be
+# traced back to exactly which version of this list was in effect.
+competitors:
+  - CloudTrim Inc
+  - SpendWise Cloud
+  - RightSize Cloud Co

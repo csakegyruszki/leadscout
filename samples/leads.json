@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Dana Whitfield",
+    "email": "dana.whitfield@example.com",
+    "company": "Example Cloud Works",
+    "website": "https://example.com",
+    "job_title": "Head of Infrastructure",
+    "company_size_band": "201-1000"
+  },
+  {
+    "name": "Eszter Halmi",
+    "email": "eszter@example.org",
+    "company": "Example Bakery",
+    "website": "https://example.org",
+    "job_title": "Owner",
+    "company_size_band": "11-50"
+  },
+  {
+    "name": "Priya Nair",
+    "email": "priya@example.net",
+    "company": "Example Cost Tools Ltd.",
+    "website": "https://example.net",
+    "job_title": "VP Sales",
+    "company_size_band": "51-200"
+  },
+  {
+    "name": "Lena Ortiz",
+    "email": "lena.ortiz@example.com",
+    "company": "Example Analytics",
+    "website": "https://www.example.com",
+    "job_title": "Head of Infrastructure",
+    "company_size_band": "51-200"
+  }
+]

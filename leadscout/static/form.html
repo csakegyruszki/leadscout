@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LeadScout — intake</title>
+  <style>
+    :root { color-scheme: light; font-family: system-ui, sans-serif; color: #172033; background: #f4f7fb; }
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 20px; box-sizing: border-box; }
+    main { width: min(100%, 520px); background: #fff; padding: 28px; border-radius: 14px; box-shadow: 0 8px 28px #1720331a; }
+    h1 { font-size: 1.5rem; margin: 0 0 8px; }
+    p { color: #536174; line-height: 1.5; margin: 0 0 20px; }
+    .banner { background: #fff5e5; border-left: 4px solid #c47f17; color: #6b4708; padding: 10px 12px; border-radius: 0 7px 7px 0; font-size: .92rem; }
+    form { display: grid; gap: 16px; }
+    label { display: grid; gap: 6px; font-weight: 650; }
+    input { font: inherit; padding: 11px 12px; border: 1px solid #aeb9c8; border-radius: 7px; }
+    input:focus { outline: 3px solid #86b7ff; border-color: #2463b8; }
+    button { font: inherit; font-weight: 700; padding: 12px; border: 0; border-radius: 7px; color: #fff; background: #175fc1; cursor: pointer; }
+    button:disabled { cursor: wait; opacity: .7; }
+    #status, #result { margin-top: 20px; line-height: 1.5; }
+    #status { color: #536174; }
+    #result { display: grid; gap: 12px; }
+    #result p { margin: 0; color: #172033; }
+    #result strong { display: block; }
+    .error { color: #a1132b !important; }
+    [hidden] { display: none; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>LeadScout — intake</h1>
+    <p class="banner">Internal console. It submits the four intake form fields and shows what the
+      pipeline decided, so the run is visible end to end. A prospect-facing form would show only a
+      confirmation: the fit score, the compliance status and the research summary are the sales team's
+      view of the submitter, not the submitter's.</p>
+    <form id="lead-form">
+      <label>Name<input name="name" autocomplete="name" required></label>
+      <label>Email<input name="email" type="email" autocomplete="email" required></label>
+      <label>Company name<input name="company" autocomplete="organization" required></label>
+      <!-- Deliberately not type="url": a real submitter types "example.com", which that
+           validator rejects for the missing scheme. The pipeline normalises it. -->
+      <label>Website<input name="website" autocomplete="url" placeholder="example.com" required></label>
+      <button type="submit">Submit lead</button>
+    </form>
+    <p id="status" aria-live="polite" hidden></p>
+    <section id="result" aria-live="polite" hidden></section>
+  </main>
+  <script>
+    const form = document.querySelector('#lead-form');
+    const button = form.querySelector('button');
+    const status = document.querySelector('#status');
+    const result = document.querySelector('#result');
+
+    function showMessage(message, isError = false) {
+      result.replaceChildren();
+      const paragraph = document.createElement('p');
+      paragraph.textContent = message;
+      if (isError) paragraph.className = 'error';
+      result.append(paragraph);
+      result.hidden = false;
+    }
+
+    function addResult(label, value) {
+      const paragraph = document.createElement('p');
+      const heading = document.createElement('strong');
+      heading.textContent = label;
+      const text = document.createElement('span');
+      // textContent, never innerHTML: every value below comes from a fetched page or an
+      // LLM summary of one, i.e. from text this pipeline does not control.
+      text.textContent = value;
+      paragraph.append(heading, text);
+      result.append(paragraph);
+    }
+
+    function failureMessage(error) {
+      if (error === 'configuration') return 'The lead service has no usable LLM credential configured, so nothing was screened.';
+      if (error === 'llm_upstream') return 'The model provider failed upstream. Nothing was written; try again.';
+      if (error === 'internal') return 'The run failed after it started. Check the server log for its run id.';
+      return 'The lead could not be submitted. Check that the service is reachable.';
+    }
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      result.hidden = true;
+      status.textContent = 'Researching the company, screening compliance and scoring fit. This usually takes 10–30 seconds.';
+      status.hidden = false;
+      button.disabled = true;
+      const data = Object.fromEntries(new FormData(form));
+      try {
+        const response = await fetch('/leads', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        const payload = await response.json().catch(() => ({}));
+        if (!response.ok) {
+          showMessage(failureMessage(payload.error), true);
+          return;
+        }
+        result.replaceChildren();
+        // next_action comes from the server (notify.next_action). Deriving it here from
+        // compliance/sales_ready would be a second copy of a rule that has to stay in
+        // step with the e-mail and the tracker.
+        addResult('Next action', payload.next_action);
+        addResult('Fit score', `${payload.fit.score}/100 (${payload.fit.confidence} confidence)`);
+        addResult('Compliance status', payload.compliance.status);
+        addResult('Research summary', payload.research.summary);
+        result.hidden = false;
+      } catch (_) {
+        showMessage('The lead could not be submitted. Check that the service is reachable.', true);
+      } finally {
+        status.hidden = true;
+        button.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>

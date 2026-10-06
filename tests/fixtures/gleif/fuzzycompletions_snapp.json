@@ -1,0 +1,174 @@
+{
+ "data": [
+  {
+   "type": "fuzzycompletions",
+   "attributes": {
+    "value": "Sappho"
+   },
+   "relationships": {
+    "lei-records": {
+     "data": {
+      "type": "lei-records",
+      "id": "875500ETNJS3IFEPI937"
+     },
+     "links": {
+      "related": "https://api.gleif.org/api/v1/lei-records/875500ETNJS3IFEPI937"
+     }
+    }
+   }
+  },
+  {
+   "type": "fuzzycompletions",
+   "attributes": {
+    "value": "SNAPSE"
+   },
+   "relationships": {
+    "lei-records": {
+     "data": {
+      "type": "lei-records",
+      "id": "9845008EEE9D642FDA95"
+     },
+     "links": {
+      "related": "https://api.gleif.org/api/v1/lei-records/9845008EEE9D642FDA95"
+     }
+    }
+   }
+  },
+  {
+   "type": "fuzzycompletions",
+   "attributes": {
+    "value": "Smappee"
+   },
+   "relationships": {
+    "lei-records": {
+     "data": {
+      "type": "lei-records",
+      "id": "894500L9EAXMDQV14L35"
+     },
+     "links": {
+      "related": "https://api.gleif.org/api/v1/lei-records/894500L9EAXMDQV14L35"
+     }
+    }
+   }
+  },
+  {
+   "type": "fuzzycompletions",
+   "attributes": {
+    "value": "Snapajo"
+   },
+   "relationships": {
+    "lei-records": {
+     "data": {
+      "type": "lei-records",
+      "id": "8755009BFH9038NP8992"
+     },
+     "links": {
+      "related": "https://api.gleif.org/api/v1/lei-records/8755009BFH9038NP8992"
+     }
+    }
+   }
+  },
+  {
+   "type": "fuzzycompletions",
+   "attributes": {
+    "value": "SynApps"
+   },
+   "relationships": {
+    "lei-records": {
+     "data": {
+      "type": "lei-records",
+      "id": "984500F767NP892EFD63"
+     },
+     "links": {
+      "related": "https://api.gleif.org/api/v1/lei-records/984500F767NP892EFD63"
+     }
+    }
+   }
+  },
+  {
+   "type": "fuzzycompletions",
+   "attributes": {
+    "value": "SAPPHIRE"
+   },
+   "relationships": {
+    "lei-records": {
+     "data": {
+      "type": "lei-records",
+      "id": "815600AC789AE8BD2883"
+     },
+     "links": {
+      "related": "https://api.gleif.org/api/v1/lei-records/815600AC789AE8BD2883"
+     }
+    }
+   }
+  },
+  {
+   "type": "fuzzycompletions",
+   "attributes": {
+    "value": "Shapp AB"
+   },
+   "relationships": {
+    "lei-records": {
+     "data": {
+      "type": "lei-records",
+      "id": "636700DTKWWII9G6XT04"
+     },
+     "links": {
+      "related": "https://api.gleif.org/api/v1/lei-records/636700DTKWWII9G6XT04"
+     }
+    }
+   }
+  },
+  {
+   "type": "fuzzycompletions",
+   "attributes": {
+    "value": "SHAPPERS"
+   },
+   "relationships": {
+    "lei-records": {
+     "data": {
+      "type": "lei-records",
+      "id": "969500WI152CWISUO364"
+     },
+     "links": {
+      "related": "https://api.gleif.org/api/v1/lei-records/969500WI152CWISUO364"
+     }
+    }
+   }
+  },
+  {
+   "type": "fuzzycompletions",
+   "attributes": {
+    "value": "SNAPPIES"
+   },
+   "relationships": {
+    "lei-records": {
+     "data": {
+      "type": "lei-records",
+      "id": "254900LPLWMFNQ646B84"
+     },
+     "links": {
+      "related": "https://api.gleif.org/api/v1/lei-records/254900LPLWMFNQ646B84"
+     }
+    }
+   }
+  },
+  {
+   "type": "fuzzycompletions",
+   "attributes": {
+    "value": "Snap B.V."
+   },
+   "relationships": {
+    "lei-records": {
+     "data": {
+      "type": "lei-records",
+      "id": "7245001AE94X48TGQE31"
+     },
+     "links": {
+      "related": "https://api.gleif.org/api/v1/lei-records/7245001AE94X48TGQE31"
+     }
+    }
+   }
+  }
+ ]
+}
