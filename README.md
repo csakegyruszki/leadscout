@@ -60,4 +60,4 @@ A Docker image (`docker build .`) serves the same API.
 
 Screening is a support tool, not a legal or KYC determination. OpenSanctions data is [CC BY-NC 4.0](https://www.opensanctions.org/licensing/).
 
-© 2026 Nikita Khava. See [LICENSE](LICENSE).
+Licensed under the [Apache License 2.0](LICENSE). © 2026 Nikita Khava.
