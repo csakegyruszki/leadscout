@@ -1,4 +1,5 @@
 # leadscout
+[![CI](https://github.com/csakegyruszki/leadscout/actions/workflows/ci.yml/badge.svg)](https://github.com/csakegyruszki/leadscout/actions/workflows/ci.yml)
 
 Inbound lead triage as a Python service. A lead arrives — from a web form, the API, the CLI or an **incoming e-mail** — and leadscout researches the company, screens it for compliance, scores it against your ideal customer profile, and hands back a structured record with a clear next action. For mail, it can also prepare a reply draft.
 
